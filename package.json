@@ -9,7 +9,10 @@
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.9",
-    "react-native-firebase": "~5.5.3"
+    "react-native-firebase": "~5.5.3",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.1",
+    "redux-persist": "^5.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
