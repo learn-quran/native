@@ -1,4 +1,4 @@
-package com.learnqruan;
+package com.shbool.learnquran;
 
 import com.facebook.react.ReactActivity;
 
