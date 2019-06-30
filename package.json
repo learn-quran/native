@@ -7,9 +7,12 @@
     "run:android": "react-native run-android"
   },
   "dependencies": {
+    "lottie-react-native": "^2.6.1",
     "react": "16.8.3",
     "react-native": "0.59.9",
     "react-native-firebase": "~5.5.3",
+    "react-native-gesture-handler": "^1.3.0",
+    "react-navigation": "^3.11.0",
     "react-redux": "^7.1.0",
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0"
