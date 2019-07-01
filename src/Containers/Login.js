@@ -7,6 +7,7 @@ import { TextInput, Button } from 'react-native-paper';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { DropDown } from '../Components';
 import { withFirebase } from '../Firebase';
+import { withTranslation } from 'react-i18next';
 
 const LoginSchema = Yup.object().shape({
   password: Yup.string().required('password-is-required'),
@@ -21,6 +22,7 @@ type State = {
 type Props = {
   firebase: Object,
   navigation: Object,
+  t: Function,
 };
 class Login extends React.Component<Props, State> {
   password: React.ElementRef<TextInput>;
@@ -61,8 +63,7 @@ class Login extends React.Component<Props, State> {
   };
 
   render() {
-    const { navigation } = this.props;
-    const t = s => s;
+    const { navigation, t } = this.props;
     return (
       <Formik
         initialValues={{
@@ -148,4 +149,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withFirebase(Login);
+export default withTranslation()(withFirebase(Login));
