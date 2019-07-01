@@ -12,7 +12,8 @@ import DropdownContainer from 'react-native-dropdownalert';
 
 import { DropDown } from './Components';
 import AppContainer from './Navigation';
-import { store, persistor } from './store';
+import { store, persistor } from './Store';
+import Firebase, { FirebaseContext } from './Firebase';
 
 YellowBox.ignoreWarnings(['Remote debugger']);
 
@@ -24,7 +25,9 @@ class App extends React.Component<Props> {
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <PaperProvider>
-              <AppContainer />
+              <FirebaseContext.Provider value={new Firebase()}>
+                <AppContainer />
+              </FirebaseContext.Provider>
             </PaperProvider>
           </PersistGate>
         </Provider>
