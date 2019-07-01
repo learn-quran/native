@@ -3,6 +3,8 @@ package com.shbool.learnquran;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.avishayil.rnrestart.ReactNativeRestartPackage;
+import com.reactcommunity.rnlocalize.RNLocalizePackage;
 import com.airbnb.android.react.lottie.LottiePackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -30,6 +32,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeRestartPackage(),
+            new RNLocalizePackage(),
             new LottiePackage(),
           // Firebase
           new RNFirebasePackage(),
