@@ -2,9 +2,46 @@ platform :ios, '9.0'
 
 target 'LearnQruan' do
 
+  rn_path = '../node_modules/react-native'
+
+  pod 'yoga', path: "#{rn_path}/ReactCommon/yoga"
+  pod 'React', path: rn_path, subspecs: [
+    'Core',
+    'CxxBridge',
+    'DevSupport',
+    'RCTActionSheet',
+    'RCTAnimation',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTNetwork',
+    'RCTSettings',
+    'RCTText',
+    'RCTVibration',
+    'RCTWebSocket',
+  ]
+  pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
+
+  pod 'lottie-ios', :path => '../node_modules/lottie-ios'
+
+
+
+
+  pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
+
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      if target.name == "React"
+        target.remove_from_project
+      end
+    end
+  end
+
   # RNFirebase
   pod 'Firebase/Core', '~> 6.3.0'
   pod 'Firebase/Auth', '~> 6.3.0'
   pod 'Firebase/Database', '~> 6.3.0'
   
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
 end

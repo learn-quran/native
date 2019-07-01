@@ -19,6 +19,11 @@
 ; Ignore metro
 .*/node_modules/metro/.*
 
+[untyped]
+.*/node_modules/react-native-paper/.*
+.*/node_modules/redux-persist/.*
+.*/node_modules/react-native-keyboard-aware-scroll-view/.*  
+
 [include]
 
 [libs]
@@ -64,6 +69,10 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(<VERSION>\\)? *\\(si
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue\\((\\(<VERSION>\\)? *\\(site=[a-z,_]*react_native[a-z,_]*\\)?)\\)?:? #[0-9]+
 suppress_comment=\\(.\\|\n\\)*\\$FlowFixedInNextDeploy
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
+
+# RNPaper
+module.file_ext=.android.js
+module.file_ext=.ios.js
 
 [version]
 ^0.93.0
