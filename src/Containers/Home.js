@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Button } from 'react-native';
+import firebase from 'react-native-firebase';
 
 class Login extends React.Component {
   render() {
     return (
       <View>
-        <Text>HOME SCREEN</Text>
+        <Button title="press me" onPress={() => firebase.auth().signOut()} />
       </View>
     );
   }
