@@ -11,13 +11,15 @@ class DropDown {
     this.dropDown = dropDown;
   }
 
-  static show(
-    message: string,
-    title: string = 'Error',
-    type: AlertType = 'error',
-  ) {
+  static show(type: AlertType, title: string, message: string) {
     if (this.dropDown) {
       this.dropDown.alertWithType(type, title, message);
+    }
+  }
+
+  static error(message: string = 'An error occured', title: string = 'Error') {
+    if (this.dropDown) {
+      this.show('error', title, message);
     }
   }
 }
