@@ -27,10 +27,6 @@ type Props = {
 class Login extends React.Component<Props, State> {
   password: React.ElementRef<TextInput>;
 
-  static navigationOptions = {
-    header: null,
-  };
-
   constructor(props: Object) {
     super(props);
     this.state = {

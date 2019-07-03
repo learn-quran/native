@@ -7,7 +7,7 @@ const navigator = createStackNavigator(
     Home,
   },
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       header: null,
     },
   },
