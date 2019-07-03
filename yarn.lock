@@ -607,7 +607,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.9"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.4.5":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.5":
   version "7.4.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
   integrity sha512-TuI4qpWZP6lGOGIuGWtp9sPluqYICmbk8T/1vpSysqJxRPkudh/ofFWyqdcMsDf2s7KvDL4/YHgKyvcS3g9CJQ==
@@ -2629,6 +2629,13 @@ hosted-git-info@^2.1.4:
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
   integrity sha512-7T/BxH19zbcCTa8XkMlbK5lTo1WtgkFi3GvdWEyNuc4Vex7/9Dqbnpsf4JMydcfj9HCg4zUWFTL3Za6lapg5/w==
 
+html-parse-stringify2@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/html-parse-stringify2/-/html-parse-stringify2-2.0.1.tgz#dc5670b7292ca158b7bc916c9a6735ac8872834a"
+  integrity sha1-3FZwtyksoVi3vJFsmmc1rIhyg0o=
+  dependencies:
+    void-elements "^2.0.1"
+
 http-errors@~1.7.2:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.7.3.tgz#6c619e4f9c60308c38519498c14fbb10aacebb06"
@@ -2639,6 +2646,13 @@ http-errors@~1.7.2:
     setprototypeof "1.1.1"
     statuses ">= 1.5.0 < 2"
     toidentifier "1.0.0"
+
+i18next@^17.0.4:
+  version "17.0.4"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-17.0.4.tgz#c690b9de0c950ff8abe626562d03c4144dd75030"
+  integrity sha512-+lwmv3FT8Sv/HwVPjkR6rtEFhgOqt9L/CTehzyxvL/NdkeUYbFZJfE57MsBToB6LFWg3d0sZJIVgYqCpWzUyLQ==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
 
 iconv-lite@^0.4.17, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
   version "0.4.24"
@@ -4601,6 +4615,14 @@ react-fast-compare@^2.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
+react-i18next@^10.11.2:
+  version "10.11.2"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-10.11.2.tgz#d8bace8a6383533bd4e0f79a911012bbe5a37c7d"
+  integrity sha512-Ru+WonG9BLILDg/By7Pw0Lne2I7HVLRyhyvDtar22tNNu6de2D89zAKl2RzK2jgq7m7l+BFSnLpz4kX7ZPV+JQ==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    html-parse-stringify2 "2.0.1"
+
 react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.3, react-is@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
@@ -4648,6 +4670,11 @@ react-native-keyboard-aware-scroll-view@^0.8.0:
     prop-types "^15.6.2"
     react-native-iphone-x-helper "^1.0.3"
 
+react-native-localize@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-1.1.3.tgz#3c18275fb240618dc6f986cdad8c887a87da54df"
+  integrity sha512-m4Wi+5xQSB9TmP3FUa+IfMUQzvwJO4iFql54fdhuRpTp8A3uxom/HsSGEbyHljUBl7+svTwtjWqAsROfX4K9IQ==
+
 react-native-paper@^2.16.0:
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-2.16.0.tgz#5a9edd5615bb010ec0d29cbfd5524c2944b2505d"
@@ -4659,6 +4686,11 @@ react-native-paper@^2.16.0:
     hoist-non-react-statics "^3.1.0"
     react-lifecycles-compat "^3.0.4"
     react-native-safe-area-view "^0.12.0"
+
+react-native-restart@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/react-native-restart/-/react-native-restart-0.0.10.tgz#b86d866de08622bc8ae55f60fb919d845617a9c1"
+  integrity sha512-1cjx/dauCz8q2pP2TeZ9MjE+o0HVsjAZgaZGqV5xUYyFz9/xOQUfwJWYkfRdBEZfUQOeGihBRBojLodICGDvag==
 
 react-native-safe-area-view@^0.12.0:
   version "0.12.0"
@@ -5844,6 +5876,11 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+
+void-elements@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
+  integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
 
 walker@^1.0.7, walker@~1.0.5:
   version "1.0.7"

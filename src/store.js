@@ -5,7 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import rootReducer from './Reducers';
 
 const persistConfig = {
-  key: 'root',
+  key: 'LearnQruan',
   storage,
 };
 

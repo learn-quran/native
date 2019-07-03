@@ -46,7 +46,7 @@ class Firebase {
           reject(this.getErrorMessage(code) || message);
         });
     });
-  createUser = ({ email, password, username }: StringMap) =>
+  createUser = ({ email, password, username, language }: StringMap) =>
     new Promise<void>((resolve, reject) => {
       this.isUsernameDuplicated(username)
         .then(() => {
@@ -59,6 +59,7 @@ class Firebase {
                   uid: user.uid,
                   username: username,
                   email: email,
+                  language: language,
                   points: 0,
                   lastPlayed: '3 days ago',
                   isEmailVerified: false,

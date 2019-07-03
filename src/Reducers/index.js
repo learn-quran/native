@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import config from './config';
+import configs from './configs';
 
 export default combineReducers({
-  config,
+  configs,
 });
