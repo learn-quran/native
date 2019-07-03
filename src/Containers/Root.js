@@ -13,7 +13,7 @@ type Props = {
   navigation: Object,
   i18n: Object,
   configs: Object,
-  changeLanguage: Function,
+  changeLanguage: typeof changeLanguage,
 };
 class Root extends React.Component<Props> {
   constructor(props) {
