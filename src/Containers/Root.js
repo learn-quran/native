@@ -3,29 +3,39 @@ import React from 'react';
 import { I18nManager } from 'react-native';
 import { connect } from 'react-redux';
 import RNRestart from 'react-native-restart';
+import * as RNLocalize from 'react-native-localize';
 
 import AppContainer from '../Navigation';
 import { withTranslation } from 'react-i18next';
+import { changeLanguage } from '../Actions';
 
 type Props = {
   navigation: Object,
   i18n: Object,
   configs: Object,
+  changeLanguage: Function,
 };
 class Root extends React.Component<Props> {
   constructor(props) {
     super(props);
-    const {
-      configs: { language },
-      i18n,
-    } = props;
-    if (i18n.language !== language) {
-      i18n.changeLanguage(language).then(() => {
-        I18nManager.forceRTL(language === 'ar');
-        I18nManager.allowRTL(language === 'ar');
+    RNLocalize.addEventListener('change', this.languageChangeHandler);
+  }
+
+  componentWillUnmount() {
+    RNLocalize.removeEventListener('change', this.languageChangeHandler);
+  }
+
+  languageChangeHandler = () => {
+    const { i18n, changeLanguage } = this.props;
+    const locale = RNLocalize.getLocales()[0].languageCode;
+    if (i18n.language !== locale) {
+      changeLanguage(locale);
+      i18n.changeLanguage(locale).then(() => {
+        I18nManager.forceRTL(locale === 'ar');
+        I18nManager.allowRTL(locale === 'ar');
         if (
-          (language === 'ar' && !I18nManager.isRTL) ||
-          (language === 'en' && I18nManager.isRTL)
+          (locale === 'ar' && !I18nManager.isRTL) ||
+          (locale === 'en' && I18nManager.isRTL)
         ) {
           setTimeout(() => {
             RNRestart.Restart();
@@ -33,7 +43,7 @@ class Root extends React.Component<Props> {
         }
       });
     }
-  }
+  };
 
   render() {
     return <AppContainer />;
@@ -41,5 +51,9 @@ class Root extends React.Component<Props> {
 }
 
 const mapStateToProps = ({ configs }) => ({ configs });
+const mapDispatchToProps = { changeLanguage };
 
-export default connect(mapStateToProps)(withTranslation()(Root));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withTranslation()(Root));
