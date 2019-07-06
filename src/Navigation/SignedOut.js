@@ -1,15 +1,18 @@
 import { createStackNavigator } from 'react-navigation';
 
-import { Login } from '../Containers';
+import { Login, Signup } from '../Containers';
 
 const navigator = createStackNavigator(
   {
     Login: {
       screen: Login,
     },
+    Signup: {
+      screen: Signup,
+    },
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'Signup',
     defaultNavigationOptions: {
       header: null,
     },
