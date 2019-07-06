@@ -5,9 +5,9 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { TextInput, Button } from 'react-native-paper';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { withTranslation } from 'react-i18next';
 import { DropDown } from '../Components';
 import { withFirebase } from '../Firebase';
-import { withTranslation } from 'react-i18next';
 
 const LoginSchema = Yup.object().shape({
   password: Yup.string().required('password-is-required'),
@@ -35,6 +35,7 @@ class Login extends React.Component<Props, State> {
   }
 
   submit = (values: Object) => {
+    const { firebase, t } = this.props;
     const changeIsSubmitting = isSubmitting => this.setState({ isSubmitting });
     changeIsSubmitting(true);
     LoginSchema.validate(values, {
@@ -42,17 +43,17 @@ class Login extends React.Component<Props, State> {
       stripUnknown: true,
     })
       .then(() => {
-        this.props.firebase
+        firebase
           .signIn(values)
           .then(() => {})
           .catch(error => {
-            Alert.alert(error);
+            Alert.alert(t(error));
             changeIsSubmitting(false);
           });
       })
       .catch(({ message }) => {
         if (message !== 'NO_MESSAGE') {
-          DropDown.error(message);
+          DropDown.error(t(message));
         }
         changeIsSubmitting(false);
       });
@@ -68,7 +69,7 @@ class Login extends React.Component<Props, State> {
         }}
         onSubmit={this.submit}
         render={({ values, handleBlur, handleChange, handleSubmit }) => (
-          <KeyboardAwareScrollView>
+          <KeyboardAwareScrollView style={{ backgroundColor: '#F6F6F6' }}>
             <View style={styles.container}>
               <View style={styles.inputsContainer}>
                 <TextInput
