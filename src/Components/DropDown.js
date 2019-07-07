@@ -1,3 +1,4 @@
+// @flow
 type AlertType = 'info' | 'warn' | 'error' | 'success';
 
 type DropdownType = {
@@ -17,9 +18,15 @@ class DropDown {
     }
   }
 
-  static error(message: string = 'An error occured', title: string = 'Error') {
+  static error(message: string = 'An error occured', title?: string = 'Error') {
     if (this.dropDown) {
       this.show('error', title, message);
+    }
+  }
+
+  static success(message: string, title?: string = 'Success') {
+    if (this.dropDown) {
+      this.show('success', title, message);
     }
   }
 }
