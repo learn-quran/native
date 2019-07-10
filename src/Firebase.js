@@ -84,7 +84,6 @@ class Firebase {
         .sendPasswordResetEmail(email)
         .then(() => resolve())
         .catch(({ code, message }) => {
-          console.log(code, message)
           reject(this.getErrorMessage(code) || message);
         });
     });
