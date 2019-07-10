@@ -112,6 +112,16 @@ class Login extends React.Component<Props, State> {
                   onPress={() => navigation.navigate('Signup')}>
                   {t('dont-have-an-account')}
                 </Button>
+                <Button
+                  mode="text"
+                  style={styles.button}
+                  onPress={() =>
+                    navigation.navigate('ForgotPassword', {
+                      email: values.email,
+                    })
+                  }>
+                  {t('forgot-your-password')}
+                </Button>
               </View>
             </View>
           </KeyboardAwareScrollView>
