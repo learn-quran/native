@@ -83,7 +83,10 @@ class Firebase {
       auth
         .sendPasswordResetEmail(email)
         .then(() => resolve())
-        .catch(error => reject(error.message));
+        .catch(({ code, message }) => {
+          console.log(code, message)
+          reject(this.getErrorMessage(code) || message);
+        });
     });
   getUser = () =>
     new Promise<void>((resolve, reject) => {
