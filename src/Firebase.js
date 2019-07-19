@@ -76,6 +76,17 @@ class Firebase {
         })
         .catch(err => reject(err));
     });
+  resetPassword = (email: string, lang: string = 'en') =>
+    new Promise<void>((resolve, reject) => {
+      const auth = this.auth();
+      auth.languageCode = lang;
+      auth
+        .sendPasswordResetEmail(email)
+        .then(() => resolve())
+        .catch(({ code, message }) => {
+          reject(this.getErrorMessage(code) || message);
+        });
+    });
   getUser = () =>
     new Promise<void>((resolve, reject) => {
       this.database() // $FlowFixMe
