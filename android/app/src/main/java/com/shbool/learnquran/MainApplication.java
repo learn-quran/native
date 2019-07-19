@@ -3,6 +3,7 @@ package com.shbool.learnquran;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.avishayil.rnrestart.ReactNativeRestartPackage;
 import com.reactcommunity.rnlocalize.RNLocalizePackage;
 import com.airbnb.android.react.lottie.LottiePackage;
@@ -32,6 +33,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VectorIconsPackage(),
             new ReactNativeRestartPackage(),
             new RNLocalizePackage(),
             new LottiePackage(),

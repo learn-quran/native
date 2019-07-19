@@ -16,7 +16,7 @@ const navigator = createMaterialBottomTabNavigator(
     },
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Account',
     shifting: true,
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ tintColor }: Object) => {

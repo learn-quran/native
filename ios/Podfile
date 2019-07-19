@@ -21,15 +21,15 @@ target 'LearnQruan' do
     'RCTWebSocket',
   ]
   pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
-
-  pod 'lottie-ios', :path => '../node_modules/lottie-ios'
-
-
-
-
-  pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
-
+  
+  # RNFirebase
+  pod 'Firebase/Core', '~> 6.3.0'
+  pod 'Firebase/Auth', '~> 6.3.0'
+  pod 'Firebase/Database', '~> 6.3.0'
+  
   pod 'RNLocalize', :path => '../node_modules/react-native-localize'
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|
@@ -38,12 +38,4 @@ target 'LearnQruan' do
       end
     end
   end
-
-  # RNFirebase
-  pod 'Firebase/Core', '~> 6.3.0'
-  pod 'Firebase/Auth', '~> 6.3.0'
-  pod 'Firebase/Database', '~> 6.3.0'
-  
-  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
-
 end
