@@ -4,6 +4,8 @@ import { createMaterialBottomTabNavigator } from 'react-navigation-material-bott
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { Home } from '../Containers';
+
+/// This throws an error if imported from the index in src/Containers -- I HAVE NO IDEA WHY
 import Account from '../Containers/Account';
 
 const navigator = createMaterialBottomTabNavigator(
@@ -16,10 +18,10 @@ const navigator = createMaterialBottomTabNavigator(
     },
   },
   {
-    initialRouteName: 'Account',
+    initialRouteName: 'Home',
     shifting: true,
     defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ tintColor }: Object) => {
+      tabBarIcon: () => {
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
@@ -35,12 +37,15 @@ const navigator = createMaterialBottomTabNavigator(
             name={iconName}
             style={{
               fontSize: 28,
-              color: tintColor,
+              color: '#FFFFFF',
             }}
           />
         );
       },
     }),
+    barStyle: {
+      backgroundColor: '#B9994E',
+    },
   },
 );
 
