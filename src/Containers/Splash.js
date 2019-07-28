@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import LottieView from 'lottie-react-native';
 import RNRestart from 'react-native-restart';

@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { withTranslation } from 'react-i18next';
@@ -10,13 +11,16 @@ type Props = {
   firebase: Object,
   t: Function,
 };
-type State = {};
+type State = {
+  isSubmitting: boolean,
+  user: Object,
+};
 class Account extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
       isSubmitting: false,
-      user: false,
+      user: {},
     };
   }
 
@@ -29,7 +33,7 @@ class Account extends React.Component<Props, State> {
     firebase
       .getUser()
       .then(user => {
-        this.setState({ user: { ...user } });
+        this.setState({ user });
       })
       .catch(() => {
         DropDown.error(
