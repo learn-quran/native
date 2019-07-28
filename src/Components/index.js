@@ -1,4 +1,2 @@
-import DropDown from './DropDown';
-import InputCard from './InputCard';
-
-export { DropDown, InputCard };
+export { default as DropDown } from './DropDown';
+export { default as InputCard } from './InputCard';

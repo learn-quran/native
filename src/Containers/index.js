@@ -1,9 +1,7 @@
-import Login from './Login';
-import Signup from './Signup';
-import Home from './Home';
-import Splash from './Splash';
-import Root from './Root';
-import ForgotPassword from './ForgotPassword';
-import Account from './Account';
-
-export { Login, Signup, Home, Splash, Root, ForgotPassword, Account };
+export { default as Login } from './Login';
+export { default as Signup } from './Signup';
+export { default as Home } from './Home';
+export { default as Splash } from './Splash';
+export { default as Root } from './Root';
+export { default as ForgotPassword } from './ForgotPassword';
+export { default as Account } from './Account';
