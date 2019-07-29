@@ -169,6 +169,33 @@ class Firebase {
           reject(this.getErrorMessage(code) || message);
         });
     });
+  getAsset = (assetId: string) =>
+    new Promise<void>((resolve, reject) => {
+      // $FlowFixMe /WIP Storage to be added/
+      this.storage()
+        .ref(`audio/${assetId}.mp3`)
+        .getDownloadURL()
+        .then(url => resolve(url))
+        .catch(({ code, message }) => {
+          reject(this.getErrorMessage(code) || message);
+        });
+    });
+  updateUserPoints = (newPoints: number) =>
+    new Promise<void>((resolve, reject) => {
+      this.getUser()
+        .then(({ points }) => {
+          this.updateUserOnDB({ points: points + newPoints })
+            .then(() => resolve())
+            .catch(() => reject());
+        })
+        .catch(() => reject());
+    });
+  updateUserLastPlayed = (lastPlayed: string) =>
+    new Promise<void>(() => {
+      this.updateUserOnDB({ lastPlayed })
+        .then(() => {})
+        .catch(() => {});
+    });
 }
 
 const FirebaseContext: React.Context<Object> = React.createContext(null);
