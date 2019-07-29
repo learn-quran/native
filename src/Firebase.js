@@ -88,7 +88,7 @@ class Firebase {
         });
     });
   getUser = () =>
-    new Promise<void>((resolve, reject) => {
+    new Promise<Object>((resolve, reject) => {
       this.database() // $FlowFixMe
         .ref(`users/${this.auth().currentUser.uid}`) // $FlowFixMe
         .once('value')
@@ -116,7 +116,7 @@ class Firebase {
         });
     });
   getLeaderboard = () =>
-    new Promise<void>((resolve, reject) => {
+    new Promise<Object>((resolve, reject) => {
       this.database()
         .ref('users')
         .orderByChild('points') // $FlowFixMe
@@ -170,7 +170,7 @@ class Firebase {
         });
     });
   getAsset = (assetId: string) =>
-    new Promise<void>((resolve, reject) => {
+    new Promise<string>((resolve, reject) => {
       // $FlowFixMe /WIP Storage to be added/
       this.storage()
         .ref(`audio/${assetId}.mp3`)
