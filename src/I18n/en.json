@@ -1,4 +1,5 @@
 {
+  "lang-code": "en",
   "language": "Language",
   "english": "English",
   "arabic": "Arabic",
@@ -73,5 +74,6 @@
   "log-out": "Log Out",
   "resume-playing": "Resume playing",
   "please-click-the-button-below-if-no-audio-is-playing": "Please click the button below if no audio is playing",
+  "about": "About",
   "":""
 }
