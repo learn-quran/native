@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -63,6 +62,12 @@
 		D31BE7BA923C4F1BB53DD2CA /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A916613E9C749EA93267340 /* FontAwesome.ttf */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
+		CA3806431123412FA46024F9 /* Amiri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6505DC0296C4E2E996FA044 /* Amiri-Bold.ttf */; };
+		B11F484A904D4046ADBB6B0B /* Amiri-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF881EDBD0154DA582796E93 /* Amiri-Regular.ttf */; };
+		5CAC093D6BC442BCB6306F4D /* Rajdhani-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9AF6C5F25714EF0BAD1E855 /* Rajdhani-Bold.ttf */; };
+		4193A9DF39684C3381DC8038 /* Rajdhani-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D00CF682C7B447DA194CEC4 /* Rajdhani-Light.ttf */; };
+		51F8F4FA1DFA4E9A97A38E8E /* Rajdhani-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40708D7F19DB45F994BE7E6B /* Rajdhani-Medium.ttf */; };
+		CA05C17DE9AB494196DABE58 /* Rajdhani-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20EA9A58BA564B32A8AFD3F7 /* Rajdhani-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -488,6 +493,12 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		EE47E47D2BC84CA3B2EA194A /* libRCTRestart.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTRestart.a; sourceTree = "<group>"; };
+		E6505DC0296C4E2E996FA044 /* Amiri-Bold.ttf */ = {isa = PBXFileReference; name = "Amiri-Bold.ttf"; path = "../Fonts/Amiri/Amiri-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BF881EDBD0154DA582796E93 /* Amiri-Regular.ttf */ = {isa = PBXFileReference; name = "Amiri-Regular.ttf"; path = "../Fonts/Amiri/Amiri-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B9AF6C5F25714EF0BAD1E855 /* Rajdhani-Bold.ttf */ = {isa = PBXFileReference; name = "Rajdhani-Bold.ttf"; path = "../Fonts/Rajdhani/Rajdhani-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5D00CF682C7B447DA194CEC4 /* Rajdhani-Light.ttf */ = {isa = PBXFileReference; name = "Rajdhani-Light.ttf"; path = "../Fonts/Rajdhani/Rajdhani-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		40708D7F19DB45F994BE7E6B /* Rajdhani-Medium.ttf */ = {isa = PBXFileReference; name = "Rajdhani-Medium.ttf"; path = "../Fonts/Rajdhani/Rajdhani-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		20EA9A58BA564B32A8AFD3F7 /* Rajdhani-SemiBold.ttf */ = {isa = PBXFileReference; name = "Rajdhani-SemiBold.ttf"; path = "../Fonts/Rajdhani/Rajdhani-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -840,6 +851,12 @@
 				DA6E031CC09843EC86E3C938 /* Octicons.ttf */,
 				7E7B5E6400804ABABC51473A /* SimpleLineIcons.ttf */,
 				C0F768219B4A44BAA42EC2DE /* Zocial.ttf */,
+				E6505DC0296C4E2E996FA044 /* Amiri-Bold.ttf */,
+				BF881EDBD0154DA582796E93 /* Amiri-Regular.ttf */,
+				B9AF6C5F25714EF0BAD1E855 /* Rajdhani-Bold.ttf */,
+				5D00CF682C7B447DA194CEC4 /* Rajdhani-Light.ttf */,
+				40708D7F19DB45F994BE7E6B /* Rajdhani-Medium.ttf */,
+				20EA9A58BA564B32A8AFD3F7 /* Rajdhani-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1416,6 +1433,12 @@
 				53D8555B88AE4FAE80849ACA /* Octicons.ttf in Resources */,
 				46BF3EC62CB2427BADB38464 /* SimpleLineIcons.ttf in Resources */,
 				ADDB65D0B97C4C30A100BBE4 /* Zocial.ttf in Resources */,
+				CA3806431123412FA46024F9 /* Amiri-Bold.ttf in Resources */,
+				B11F484A904D4046ADBB6B0B /* Amiri-Regular.ttf in Resources */,
+				5CAC093D6BC442BCB6306F4D /* Rajdhani-Bold.ttf in Resources */,
+				4193A9DF39684C3381DC8038 /* Rajdhani-Light.ttf in Resources */,
+				51F8F4FA1DFA4E9A97A38E8E /* Rajdhani-Medium.ttf in Resources */,
+				CA05C17DE9AB494196DABE58 /* Rajdhani-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

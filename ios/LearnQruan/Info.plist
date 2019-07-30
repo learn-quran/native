@@ -71,6 +71,12 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Amiri-Bold.ttf</string>
+		<string>Amiri-Regular.ttf</string>
+		<string>Rajdhani-Bold.ttf</string>
+		<string>Rajdhani-Light.ttf</string>
+		<string>Rajdhani-Medium.ttf</string>
+		<string>Rajdhani-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>
