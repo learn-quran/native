@@ -14,13 +14,15 @@ import { Root } from './Containers';
 import { DropDown } from './Components';
 import { store, persistor } from './Store';
 import Firebase, { FirebaseContext } from './Firebase';
+import { getTheme } from './Theme';
 
 import './I18n';
+import { withTranslation } from 'react-i18next';
 
 YellowBox.ignoreWarnings(['Remote debugger']);
 
 type Props = {
-  i18n: Object,
+  t: Function,
 };
 class App extends React.Component<Props> {
   render() {
@@ -28,7 +30,7 @@ class App extends React.Component<Props> {
       <Fragment>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <PaperProvider>
+            <PaperProvider theme={getTheme(this.props.t('lang-code'))}>
               <FirebaseContext.Provider value={new Firebase()}>
                 <Root />
               </FirebaseContext.Provider>
@@ -44,4 +46,4 @@ class App extends React.Component<Props> {
   }
 }
 
-export default App;
+export default withTranslation()(App);
