@@ -20,8 +20,14 @@ const navigator = createMaterialBottomTabNavigator(
   {
     initialRouteName: 'Settings',
     shifting: true,
+    labeled: false,
+    barStyle: {
+      backgroundColor: '#B9994E',
+    },
+    activeTintColor: 'white',
+    inactiveTintColor: '#4F4F4F',
     defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: () => {
+      tabBarIcon: ({ focused, tintColor }: Object) => {
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
@@ -35,17 +41,14 @@ const navigator = createMaterialBottomTabNavigator(
         return (
           <Icon
             name={iconName}
+            size={focused ? 26 : 22}
             style={{
-              fontSize: 28,
-              color: '#FFFFFF',
+              color: tintColor,
             }}
           />
         );
       },
     }),
-    barStyle: {
-      backgroundColor: '#B9994E',
-    },
   },
 );
 
