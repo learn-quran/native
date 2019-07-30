@@ -12,7 +12,7 @@ function getTheme(lang: string) {
     },
     fonts: {
       regular: `${fontFamily}-Bold`,
-      medium: lang === 'en' ? 'Rajdhani-SemiBold' : 'Amiri-Regular',
+      medium: lang === 'en' ? 'Rajdhani-SemiBold' : 'Amiri-Bold',
       light: lang === 'en' ? 'Rajdhani-Medium' : 'Amiri-Regular',
       thin: lang === 'en' ? 'Rajdhani-Light' : 'Amiri-Regular',
     },
