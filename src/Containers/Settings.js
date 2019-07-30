@@ -86,7 +86,9 @@ class Settings extends React.Component<Props, State> {
           <Dialog
             visible={this.state.visible}
             onDismiss={() => this.setState({ visible: false })}>
-            <Dialog.Title>{t('about')}</Dialog.Title>
+            <Dialog.Title>
+              {t('meet-the-people-behind-learn-quran')}
+            </Dialog.Title>
             <Dialog.Content>
               {Object.values(Authors).map(({ name, urls }: Object, i) => (
                 <View style={styles.author} key={i}>
