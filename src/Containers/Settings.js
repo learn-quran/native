@@ -7,10 +7,9 @@ import {
   StyleSheet,
   SafeAreaView,
   I18nManager,
-  Text,
   Linking,
 } from 'react-native';
-import { Button, Portal, Dialog } from 'react-native-paper';
+import { Button, Portal, Dialog, Text } from 'react-native-paper';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import { withFirebase } from '../Firebase';
