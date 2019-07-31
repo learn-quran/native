@@ -17,6 +17,7 @@ import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage; 
 import io.invertase.firebase.database.RNFirebaseDatabasePackage;
+import io.invertase.firebase.storage.RNFirebaseStoragePackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,15 +34,16 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new LottiePackage(),
-            new VectorIconsPackage(),
-            new ReactNativeRestartPackage(),
-            new RNLocalizePackage(),
+          new LottiePackage(),
+          new VectorIconsPackage(),
+          new ReactNativeRestartPackage(),
+          new RNLocalizePackage(),
+          new RNGestureHandlerPackage(),
           // Firebase
           new RNFirebasePackage(),
           new RNFirebaseAuthPackage(),
           new RNFirebaseDatabasePackage(),
-          new RNGestureHandlerPackage()
+          new RNFirebaseStoragePackage()
       );
     }
 
