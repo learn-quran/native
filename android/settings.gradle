@@ -1,4 +1,6 @@
 rootProject.name = 'LearnQruan'
+include ':react-native-sound'
+project(':react-native-sound').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sound/android')
 include ':lottie-react-native'
 project(':lottie-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/lottie-react-native/src/android')
 include ':react-native-vector-icons'

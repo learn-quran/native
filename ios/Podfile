@@ -32,6 +32,8 @@ target 'LearnQruan' do
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
   post_install do |installer|
     installer.pods_project.targets.each do |target|
       if target.name == "React"
