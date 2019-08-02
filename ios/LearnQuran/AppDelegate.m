@@ -20,9 +20,8 @@
 {
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
-                                                   moduleName:@"LearnQruan"
+                                                   moduleName:@"LearnQuran"
                                             initialProperties:nil];
-
   [FIRApp configure];
 
   [[RCTI18nUtil sharedInstance] allowRTL:YES];
