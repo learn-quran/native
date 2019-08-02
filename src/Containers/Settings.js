@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'space-evenly',
     flexDirection: 'row',
-    paddingBottom: 8,
+    paddingBottom: 15,
   },
   icon: {
     fontSize: 28,
