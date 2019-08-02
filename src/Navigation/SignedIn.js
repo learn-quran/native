@@ -7,18 +7,22 @@ import { Settings } from '../Containers';
 
 /// This throws an error if imported from the index in src/Containers -- I HAVE NO IDEA WHY
 import Account from '../Containers/Account';
+import Player from '../Containers/Player';
 
 const navigator = createMaterialBottomTabNavigator(
   {
-    Settings: {
-      screen: Settings,
+    Player: {
+      screen: Player,
     },
     Account: {
       screen: Account,
     },
+    Settings: {
+      screen: Settings,
+    },
   },
   {
-    initialRouteName: 'Settings',
+    initialRouteName: 'Player',
     shifting: true,
     labeled: false,
     barStyle: {
@@ -31,11 +35,14 @@ const navigator = createMaterialBottomTabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
-          case 'Settings':
-            iconName = 'settings';
+          case 'Player':
+            iconName = 'play';
             break;
           case 'Account':
             iconName = 'account';
+            break;
+          case 'Settings':
+            iconName = 'settings';
             break;
         }
         return (

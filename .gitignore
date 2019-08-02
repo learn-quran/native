@@ -57,3 +57,4 @@ buck-out/
 
 /ios/Pods
 /__tests__
+/src/Assets/Audio/data.json
