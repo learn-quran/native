@@ -10,11 +10,13 @@ type StringMap = {
 class Firebase {
   auth: typeof firebase.auth;
   database: typeof firebase.database;
+  storage: typeof firebase.storage;
   errors: Array<string>;
 
   constructor() {
     this.auth = firebase.auth;
     this.database = firebase.database;
+    this.storage = firebase.storage;
   }
 
   errors = [
@@ -171,7 +173,6 @@ class Firebase {
     });
   getAsset = (assetId: string) =>
     new Promise<string>((resolve, reject) => {
-      // $FlowFixMe /WIP Storage to be added/
       this.storage()
         .ref(`audio/${assetId}.mp3`)
         .getDownloadURL()
