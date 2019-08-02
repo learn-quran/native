@@ -29,6 +29,12 @@ class DropDown {
       this.show('success', title, message);
     }
   }
+
+  static warn(message: string, title?: string = 'Warning') {
+    if (this.dropDown) {
+      this.show('warn', title, message);
+    }
+  }
 }
 
 export default DropDown;
