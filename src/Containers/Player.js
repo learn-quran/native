@@ -34,11 +34,11 @@ class Player extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    //this.getAsset();
+    this.getAsset();
     this.persistUserInfo();
   }
   componentWillUnmount() {
-    //this.sound.release();
+    this.sound.release();
   }
 
   getAsset = () => {
@@ -94,6 +94,7 @@ class Player extends React.Component<Props, State> {
   };
 
   handleResetClick = () => {
+    console.log('hsa');
     this.sound.stop(() => this.sound.play());
   };
   handleAnswerClick = index => {
@@ -160,7 +161,11 @@ class Player extends React.Component<Props, State> {
         ) : (
           <React.Fragment>
             <View style={styles.resetContainer}>
-              <IconButton icon="refresh" size={32} />
+              <IconButton
+                icon="refresh"
+                size={32}
+                onPress={this.handleResetClick}
+              />
             </View>
             <View style={styles.buttonsContainer}>
               {this.datoms.map((datom, i) => (
@@ -168,9 +173,9 @@ class Player extends React.Component<Props, State> {
                   key={i}
                   mode="outlined"
                   disabled={datom.disabled}
-                  style={styles.button}
+                  style={styles.button(datom.disabled)}
                   onPress={() => this.handleAnswerClick(i)}>
-                  <Text numberOfLines={1} style={styles.buttonText}>
+                  <Text style={styles.buttonText(datom.disabled)}>
                     {datom.name[t('lang-code')]}
                   </Text>
                 </Button>
@@ -184,7 +189,7 @@ class Player extends React.Component<Props, State> {
 }
 
 const { height, width } = Dimensions.get('screen');
-const styles = StyleSheet.create({
+const styles = {
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -224,17 +229,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
-  button: {
+  button: disabled => ({
     width: width * 0.4,
     borderWidth: 1.15,
-    borderColor: '#B9994E',
-  },
-  buttonText: {
+    borderColor: disabled ? '#4F4F4F' : '#B9994E',
+  }),
+  buttonText: disabled => ({
     textAlign: 'center',
     letterSpacing: 1,
     fontSize: 21,
-    color: '#B9994E',
-  },
-});
+    color: disabled ? '#4F4F4F' : '#B9994E',
+  }),
+};
 
 export default withTranslation()(withFirebase(Player));
