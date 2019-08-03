@@ -32,7 +32,7 @@
   "password-confirmation-is-required": "يجب تأكيد كلمة المرور",
   "passwords-dont-match": "كلمتي المرور غير متطابقات",
   "this-will-be-used-on-the-leaderboard": "هذا سيستخدم على قائمة الصدارة.",
-  "something-went-wrong-please-close-the-tab-and-try-again": "حصل خطأ. يرجى اغلاق الصفحة والمحاولة مجددًا.",
+  "something-went-wrong-please-restart-the-app-and-try-again": "حصل خطأ. يرجى إعادة فتح التطبيق والمحاولة مجددًا.",
   "your-username-has-been-updated": "تم تغيير اسم المستخدم.",
   "username-too-short": "اسم المستخدم قصير جدًا.",
   "edit-account": "تعديل الحساب",
