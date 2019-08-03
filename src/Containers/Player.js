@@ -1,6 +1,6 @@
 import React from 'react';
 import Sound from 'react-native-sound';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View, Dimensions } from 'react-native';
 import { IconButton, Text, Button } from 'react-native-paper';
 
 import {
@@ -94,7 +94,6 @@ class Player extends React.Component<Props, State> {
   };
 
   handleResetClick = () => {
-    console.log('hsa');
     this.sound.stop(() => this.sound.play());
   };
   handleAnswerClick = index => {
