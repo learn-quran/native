@@ -7,9 +7,14 @@ type DropdownType = {
 
 class DropDown {
   static dropDown: DropdownType;
+  static t: string => string;
 
   static setDropDown(dropDown: DropdownType) {
     this.dropDown = dropDown;
+  }
+
+  static setTransFunc(t: string => string) {
+    this.t = t;
   }
 
   static show(type: AlertType, title: string, message: string) {
@@ -18,19 +23,22 @@ class DropDown {
     }
   }
 
-  static error(message: string = 'An error occured', title?: string = 'Error') {
+  static error(
+    message: string = this.t('an-error-occured'),
+    title?: string = this.t('error'),
+  ) {
     if (this.dropDown) {
       this.show('error', title, message);
     }
   }
 
-  static success(message: string, title?: string = 'Success') {
+  static success(message: string, title?: string = this.t('success')) {
     if (this.dropDown) {
       this.show('success', title, message);
     }
   }
 
-  static warn(message: string, title?: string = 'Warning') {
+  static warn(message: string, title?: string = this.t('warning')) {
     if (this.dropDown) {
       this.show('warn', title, message);
     }

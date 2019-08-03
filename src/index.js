@@ -38,7 +38,10 @@ class App extends React.Component<Props> {
           </PersistGate>
         </Provider>
         <DropdownContainer
-          ref={o => DropDown.setDropDown(o)}
+          ref={o => {
+            DropDown.setDropDown(o);
+            DropDown.setTransFunc(this.props.t);
+          }}
           closeInterval={2800}
         />
       </Fragment>
