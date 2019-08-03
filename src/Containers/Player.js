@@ -62,7 +62,7 @@ class Player extends React.Component<Props, State> {
       .catch(() => {
         DropDown.error(
           this.props.t(
-            'something-went-wrong-please-close-the-tab-and-try-again',
+            'something-went-wrong-please-restart-the-app-and-try-again',
           ),
         );
       });
@@ -108,6 +108,7 @@ class Player extends React.Component<Props, State> {
         .then(() => {
           DropDown.success(
             t('congratulations-you-earned-n-points', { points: this.points }),
+            `${t('good-job')}!`,
           );
           this.persistUserInfo();
         })
@@ -119,7 +120,7 @@ class Player extends React.Component<Props, State> {
           );
         });
     } else {
-      DropDown.warn(t('try-again'));
+      DropDown.warn(t('try-again'), `${t('luck-wasnt-on-your-side')} :(`);
       this.datoms[index].disabled = true;
       this.points -= 1;
       if (this.points === 0) {
