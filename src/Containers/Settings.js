@@ -61,8 +61,11 @@ class Settings extends React.Component<Props, State> {
       <React.Fragment>
         <SafeAreaView style={{ flex: 1 }}>
           <View style={styles.container}>
-            <Button mode="contained" onPress={logout} style={styles.button}>
-              <Text style={styles.buttonText}>{t('log-out')}</Text>
+            <Button
+              mode="contained"
+              onPress={() => this.setState({ visible: true })}
+              style={styles.button}>
+              <Text style={styles.buttonText}>{t('about')}</Text>
             </Button>
             <Button
               mode="contained"
@@ -74,11 +77,8 @@ class Settings extends React.Component<Props, State> {
                   : 'تغيير إلى اللغة العربية'}
               </Text>
             </Button>
-            <Button
-              mode="contained"
-              onPress={() => this.setState({ visible: true })}
-              style={styles.button}>
-              <Text style={styles.buttonText}>{t('about')}</Text>
+            <Button mode="contained" onPress={logout} style={styles.button}>
+              <Text style={styles.buttonText}>{t('log-out')}</Text>
             </Button>
           </View>
         </SafeAreaView>
