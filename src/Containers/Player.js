@@ -175,7 +175,9 @@ class Player extends React.Component<Props, State> {
                   disabled={datom.disabled}
                   style={styles.button(datom.disabled)}
                   onPress={() => this.handleAnswerClick(i)}>
-                  <Text style={styles.buttonText(datom.disabled)}>
+                  <Text
+                    numberOfLines={1}
+                    style={styles.buttonText(datom.disabled)}>
                     {datom.name[t('lang-code')]}
                   </Text>
                 </Button>
@@ -230,7 +232,7 @@ const styles = {
     alignItems: 'center',
   },
   button: disabled => ({
-    width: width * 0.4,
+    width: width * 0.55,
     borderWidth: 1.15,
     borderColor: disabled ? '#4F4F4F' : '#B9994E',
   }),
