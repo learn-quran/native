@@ -45,7 +45,8 @@ const InputCard = ({
         mode="contained"
         onPress={handleSubmit}
         style={styles.button}
-        disabled={isSubmitting}>
+        disabled={isSubmitting}
+        loading={isSubmitting}>
         {buttonText}
       </Button>
     </View>
