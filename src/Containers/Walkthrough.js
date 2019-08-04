@@ -1,9 +1,12 @@
 // @flow
 import React from 'react';
-import { View } from 'react-native';
+import { View, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { withTranslation } from 'react-i18next';
+
+const { height, width } = Dimensions.get('screen');
+const ratio = height / width;
 
 type Props = {
   t: Function,
@@ -15,6 +18,7 @@ class Walkthrough extends React.Component<Props> {
     super(props);
     const { t } = props;
     const fontFamily = t('lang-code') === 'en' ? 'Rajdhani' : 'Amiri';
+    const lang = t('lang-code');
     this.slides = [
       {
         key: 'index',
@@ -23,52 +27,42 @@ class Walkthrough extends React.Component<Props> {
         )}`,
         textStyle: {
           color: '#B9994E',
-          fontSize: 24,
-          fontWeight: '700',
-          fontFamily,
+          fontSize: Math.round(16 * ratio),
+          fontFamily: `${fontFamily}-Bold`,
         },
         image: require('../Assets/Images').logo,
         imageStyle: {
-          width: 300,
-          height: 300,
+          width: width * 0.7,
+          height: width * 0.7,
         },
         backgroundColor: '#f4f0eb',
       },
       {
         key: 'how-to-play',
         title: t('how-to-play'),
-        titleStyle: {
-          ...styles.titleStyle,
-          fontFamily,
-        },
+        titleStyle: styles.titleStyle(fontFamily),
         text: t('walkthrough-how-to-play-paragprah'),
-        textStyle: {
-          ...styles.textStyle,
-          fontFamily,
-        },
+        textStyle: styles.textStyle(lang),
         image: require('../Animations').howToPlay,
         imageStyle: {
-          width: 360,
-          height: 360,
+          width: width * 0.7,
+          height: height * 0.4,
         },
         backgroundColor: '#f4f0eb',
       },
       {
         key: 'inspiration',
         title: t('inspiration'),
-        titleStyle: {
-          ...styles.titleStyle,
-          fontFamily,
-        },
+        titleStyle: styles.titleStyle(fontFamily),
         text: t('walkthrough-inspiration-paragprah'),
         textStyle: {
-          ...styles.textStyle,
-          fontSize: 20,
+          ...styles.textStyle(lang),
+          fontSize: Math.round(9.5 * ratio),
         },
         image: require('../Animations').inspiration,
         imageStyle: {
-          width: 275,
-          height: 275,
+          width: width * 0.7,
+          height: height * 0.3,
         },
         backgroundColor: '#f4f0eb',
       },
@@ -105,18 +99,20 @@ class Walkthrough extends React.Component<Props> {
 }
 
 const styles = {
-  titleStyle: {
+  titleStyle: fontFamily => ({
     color: '#6b5729',
-    fontWeight: '800',
+    fontFamily: `${fontFamily}-Bold`,
     fontSize: 30,
     textTransform: 'uppercase',
     paddingTop: 25,
-  },
-  textStyle: {
+    height: height * 0.2,
+  }),
+  textStyle: lang => ({
     color: '#6b5729',
-    fontSize: 18,
-    fontWeight: '500',
-  },
+    fontFamily: lang === 'en' ? 'Rajdhani-Medium' : 'Amiri-Regular',
+    fontSize: Math.round(10 * ratio),
+    height: height * 0.24,
+  }),
   iconContainer: {
     width: 40,
     height: 40,
