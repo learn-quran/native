@@ -6,3 +6,4 @@ export { default as Root } from './Root';
 export { default as ForgotPassword } from './ForgotPassword';
 export { default as Account } from './Account';
 export { default as Player } from './Player';
+export { default as Walkthrough } from './Walkthrough';
