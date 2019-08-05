@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#f9f7ec',
-    fontSize: 16,
+    fontSize: 20,
   },
   author: {
     alignItems: 'center',
