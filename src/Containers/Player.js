@@ -138,7 +138,7 @@ class Player extends React.Component<Props, State> {
     const { user, lost, won } = this.state;
     return (
       <View style={styles.container}>
-        {!!user.points && (
+        {!!user.uid && (
           <View style={styles.yourPointsContainer}>
             <Text style={styles.yourPointsDefault}>{t('your-points')}</Text>
             <View style={styles.yourPointsContent}>
@@ -194,9 +194,9 @@ const { height, width } = Dimensions.get('screen');
 const styles = {
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
-    height: height * 0.8,
+    paddingTop: 30,
   },
   yourPointsContainer: {
     flex: 1,
@@ -227,7 +227,7 @@ const styles = {
     alignItems: 'center',
   },
   buttonsContainer: {
-    flex: 2,
+    flex: 3,
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
