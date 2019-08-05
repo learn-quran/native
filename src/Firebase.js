@@ -57,16 +57,22 @@ class Firebase {
             .then(({ user }) => {
               if (user && user.uid) {
                 let updates = {};
-                updates['users/' + user.uid] = {
+                updates['users/private/' + user.uid] = {
                   uid: user.uid,
-                  username: username,
                   email: email,
                   language: language,
+                  username: username,
                   points: 0,
-                  lastPlayed: '3 days ago',
-                  isEmailVerified: false,
+                  lastPlayed: 'never-played',
+                  createdAt: new Date(),
                 };
-                this.database() // $FlowFixMe
+                updates['users/public/' + user.uid] = {
+                  username: username,
+                  points: 0,
+                  lastPlayed: 'never-played',
+                };
+                this.database()
+                  // $FlowFixMe
                   .ref()
                   .update(updates);
                 resolve();
@@ -92,7 +98,8 @@ class Firebase {
   getUser = () =>
     new Promise<Object>((resolve, reject) => {
       this.database() // $FlowFixMe
-        .ref(`users/${this.auth().currentUser.uid}`) // $FlowFixMe
+        .ref(`users/private/${this.auth().currentUser.uid}`)
+        // $FlowFixMe
         .once('value')
         .then(snapshot => {
           resolve(snapshot.val());
@@ -102,7 +109,7 @@ class Firebase {
   isUsernameDuplicated = (username: string) =>
     new Promise<void>((resolve, reject) => {
       this.database()
-        .ref('users')
+        .ref('users/public')
         .orderByChild('username')
         .equalTo(username) // $FlowFixMe
         .once('value')
@@ -120,7 +127,7 @@ class Firebase {
   getLeaderboard = () =>
     new Promise<Object>((resolve, reject) => {
       this.database()
-        .ref('users')
+        .ref('users/public')
         .orderByChild('points') // $FlowFixMe
         .once('value')
         .then(snapshot => {
@@ -130,11 +137,29 @@ class Firebase {
           reject(this.getErrorMessage(code) || message);
         });
     });
-  updateUserOnDB = (updates: Object) =>
+  updateUserOnDB = (
+    _updates: Object,
+    _public: boolean = false,
+    _private: boolean = true,
+  ) =>
     new Promise<void>((resolve, reject) => {
-      this.database() // $FlowFixMe
-        .ref(`users/${this.auth().currentUser.uid}`)
-        .update(updates)
+      if (!_public && !_private) return;
+      // $FlowFixMe
+      const { uid } = this.auth().currentUser;
+      const promises = [];
+      if (_public)
+        promises.push(
+          this.database()
+            .ref(`users/public/${uid}`)
+            .update(_updates),
+        );
+      if (_private)
+        promises.push(
+          this.database()
+            .ref(`users/private/${uid}`)
+            .update(_updates),
+        );
+      Promise.all(promises)
         .then(() => resolve())
         .catch(() => reject('an-error-occured-please-try-again-later'));
     });
@@ -185,7 +210,7 @@ class Firebase {
     new Promise<void>((resolve, reject) => {
       this.getUser()
         .then(({ points }) => {
-          this.updateUserOnDB({ points: points + newPoints })
+          this.updateUserOnDB({ points: points + newPoints }, true)
             .then(() => resolve())
             .catch(() => reject());
         })
@@ -193,7 +218,7 @@ class Firebase {
     });
   updateUserLastPlayed = (lastPlayed: string) =>
     new Promise<void>(() => {
-      this.updateUserOnDB({ lastPlayed })
+      this.updateUserOnDB({ lastPlayed }, true)
         .then(() => {})
         .catch(() => {});
     });

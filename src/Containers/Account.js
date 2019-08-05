@@ -52,7 +52,7 @@ class Account extends React.Component<Props, State> {
             .then(() => {
               this.setState({ isSubmitting: true });
               firebase
-                .updateUserOnDB({ username })
+                .updateUserOnDB({ username }, true)
                 .then(() =>
                   DropDown.success(t('your-username-has-been-updated')),
                 )
