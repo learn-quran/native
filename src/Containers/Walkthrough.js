@@ -9,7 +9,7 @@ import { withTranslation } from 'react-i18next';
 const { height, width } = Dimensions.get('screen');
 const ratio = Platform.select({
   ios: height / width + 0.2,
-  android: height / width,
+  android: height / width + 0.1,
 });
 
 type Props = {
@@ -125,13 +125,13 @@ const styles = {
     },
     image: {
       width: width * 0.7,
-      height: '100%',
+      height: '120%',
     },
   },
   title: {
     container: {
       flex: 1,
-      justifyContent: 'center',
+      justifyContent: 'flex-end',
       alignItems: 'center',
       paddingHorizontal: 16,
       paddingVertical: 4,
