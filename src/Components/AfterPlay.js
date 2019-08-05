@@ -15,7 +15,7 @@ const AfterPlay = ({ animation, init, buttonText }: Props) => {
         source={require('../Animations')[animation]}
         autoPlay
         loop={false}
-        style={styles.animation}
+        style={{ width: animation === 'onLose' ? '50%' : '70%' }}
         resizeMode="cover"
       />
       <Button mode="contained" onPress={() => init(true)} style={styles.button}>
@@ -31,9 +31,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 20,
-  },
-  animation: {
-    width: '70%',
   },
   button: {
     padding: 8,
