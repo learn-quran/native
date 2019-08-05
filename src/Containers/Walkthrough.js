@@ -1,13 +1,16 @@
 // @flow
 import React from 'react';
-import { View, Image, Dimensions } from 'react-native';
+import { View, Image, Dimensions, Platform } from 'react-native';
 import { Text } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { withTranslation } from 'react-i18next';
 
 const { height, width } = Dimensions.get('screen');
-const ratio = height / width;
+const ratio = Platform.select({
+  ios: height / width + 0.2,
+  android: height / width,
+});
 
 type Props = {
   t: Function,
@@ -28,7 +31,7 @@ class Walkthrough extends React.Component<Props> {
         )}`,
         titleStyle: {
           color: '#B9994E',
-          fontSize: Math.round(12 * ratio),
+          fontSize: Math.round(10 * ratio),
           fontFamily: `${fontFamily}-Bold`,
         },
         image: require('../Assets/Images').logo,
@@ -131,6 +134,7 @@ const styles = {
       justifyContent: 'center',
       alignItems: 'center',
       paddingHorizontal: 16,
+      paddingVertical: 4,
     },
     text: {
       color: '#6b5729',
@@ -143,10 +147,11 @@ const styles = {
   },
   desc: {
     container: {
-      flex: 3,
+      flex: 4,
       justifyContent: 'center',
       alignItems: 'center',
       paddingHorizontal: 20,
+      paddingVertical: 4,
     },
     text: lang => ({
       color: '#6b5729',
