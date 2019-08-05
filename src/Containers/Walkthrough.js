@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
-import { View, Dimensions } from 'react-native';
+import { View, Image, Dimensions } from 'react-native';
+import { Text } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { withTranslation } from 'react-i18next';
@@ -22,12 +23,12 @@ class Walkthrough extends React.Component<Props> {
     this.slides = [
       {
         key: 'index',
-        text: `${t('learn-quran')} ${t(
+        title: `${t('learn-quran')} ${t(
           'is-a-hybrid-platform-for-testing-your-knowledge-in-the-holy-quran',
         )}`,
-        textStyle: {
+        titleStyle: {
           color: '#B9994E',
-          fontSize: Math.round(16 * ratio),
+          fontSize: Math.round(12 * ratio),
           fontFamily: `${fontFamily}-Bold`,
         },
         image: require('../Assets/Images').logo,
@@ -35,40 +36,45 @@ class Walkthrough extends React.Component<Props> {
           width: width * 0.7,
           height: width * 0.7,
         },
-        backgroundColor: '#f4f0eb',
       },
       {
         key: 'how-to-play',
         title: t('how-to-play'),
-        titleStyle: styles.titleStyle(fontFamily),
         text: t('walkthrough-how-to-play-paragprah'),
-        textStyle: styles.textStyle(lang),
         image: require('../Animations').howToPlay,
-        imageStyle: {
-          width: width * 0.7,
-          height: height * 0.4,
-        },
-        backgroundColor: '#f4f0eb',
+        lang,
       },
       {
         key: 'inspiration',
         title: t('inspiration'),
-        titleStyle: styles.titleStyle(fontFamily),
         text: t('walkthrough-inspiration-paragprah'),
         textStyle: {
-          ...styles.textStyle(lang),
-          fontSize: Math.round(9.5 * ratio),
+          fontSize: Math.round(8.5 * ratio),
         },
         image: require('../Animations').inspiration,
-        imageStyle: {
-          width: width * 0.7,
-          height: height * 0.3,
-        },
-        backgroundColor: '#f4f0eb',
+        lang,
       },
     ];
   }
 
+  _renderItem = ({ item, dimensions }) => (
+    <View style={[styles.container, dimensions]} key={item.key}>
+      <View style={styles.image.container}>
+        <Image
+          source={item.image}
+          style={[styles.image.image, item.imageStyle]}
+        />
+      </View>
+      <View style={styles.title.container}>
+        <Text style={[styles.title.text, item.titleStyle]}>{item.title}</Text>
+      </View>
+      {!!item.text && (
+        <View style={styles.desc.container}>
+          <Text style={styles.desc.text(item.lang)}>{item.text}</Text>
+        </View>
+      )}
+    </View>
+  );
   _renderNextButton = () => (
     <View style={styles.iconContainer}>
       <Icon
@@ -89,6 +95,7 @@ class Walkthrough extends React.Component<Props> {
     return (
       <AppIntroSlider
         slides={this.slides}
+        renderItem={this._renderItem}
         onDone={this._onDone}
         renderNextButton={this._renderNextButton}
         renderDoneButton={this._renderDoneButton}
@@ -99,20 +106,56 @@ class Walkthrough extends React.Component<Props> {
 }
 
 const styles = {
-  titleStyle: fontFamily => ({
-    color: '#6b5729',
-    fontFamily: `${fontFamily}-Bold`,
-    fontSize: 30,
-    textTransform: 'uppercase',
-    paddingTop: 25,
-    height: height * 0.2,
-  }),
-  textStyle: lang => ({
-    color: '#6b5729',
-    fontFamily: lang === 'en' ? 'Rajdhani-Medium' : 'Amiri-Regular',
-    fontSize: Math.round(10 * ratio),
-    height: height * 0.24,
-  }),
+  container: {
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#f4f0eb',
+    paddingTop: 35,
+    paddingBottom: 70,
+  },
+  image: {
+    container: {
+      flex: 4,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    image: {
+      width: width * 0.7,
+      height: '100%',
+    },
+  },
+  title: {
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingHorizontal: 16,
+    },
+    text: {
+      color: '#6b5729',
+      fontWeight: '700',
+      fontSize: 30,
+      textTransform: 'uppercase',
+      textAlign: 'center',
+      backgroundColor: 'transparent',
+    },
+  },
+  desc: {
+    container: {
+      flex: 3,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingHorizontal: 20,
+    },
+    text: lang => ({
+      color: '#6b5729',
+      textAlign: 'center',
+      fontSize: Math.round(9 * ratio),
+      backgroundColor: 'transparent',
+      fontFamily: lang === 'en' ? 'Rajdhani-Medium' : 'Amiri-Regular',
+    }),
+  },
   iconContainer: {
     width: 40,
     height: 40,
