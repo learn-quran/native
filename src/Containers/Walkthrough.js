@@ -115,7 +115,7 @@ const styles = {
     alignItems: 'center',
     backgroundColor: '#f4f0eb',
     paddingTop: 35,
-    paddingBottom: 70,
+    paddingBottom: height * 0.08 + 30,
   },
   image: {
     container: {
