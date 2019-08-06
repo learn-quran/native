@@ -40,7 +40,7 @@ android_build_config(
 
 android_resource(
     name = "res",
-    package = "com.shbool.learnqruan",
+    package = "com.shbool.learnquran",
     res = "src/main/res",
 )
 

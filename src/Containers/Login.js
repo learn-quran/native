@@ -103,7 +103,8 @@ class Login extends React.Component<Props, State> {
                   mode="contained"
                   onPress={handleSubmit}
                   style={styles.button}
-                  disabled={this.state.isSubmitting}>
+                  disabled={this.state.isSubmitting}
+                  loading={this.state.isSubmitting}>
                   {t('log-in')}
                 </Button>
                 <Button

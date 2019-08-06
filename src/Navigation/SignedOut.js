@@ -4,9 +4,13 @@ import { Login, Signup } from '../Containers';
 
 // This throws an error if imported from the index in src/Containers -- I HAVE NO IDEA WHY
 import ForgotPassword from '../Containers/ForgotPassword';
+import Walkthrough from '../Containers/Walkthrough';
 
 const navigator = createStackNavigator(
   {
+    Walkthrough: {
+      screen: Walkthrough,
+    },
     Login: {
       screen: Login,
     },
@@ -18,7 +22,7 @@ const navigator = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'Signup',
+    initialRouteName: 'Walkthrough',
     defaultNavigationOptions: {
       header: null,
     },

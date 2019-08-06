@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
-import { Alert, View, StyleSheet, Dimensions, Text } from 'react-native';
+import { Alert, View, StyleSheet, Dimensions } from 'react-native';
 import { Formik } from 'formik';
-import { TextInput, Button } from 'react-native-paper';
+import { TextInput, Button, Text } from 'react-native-paper';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { withTranslation } from 'react-i18next';
 import { DropDown } from '../Components';
@@ -55,7 +55,7 @@ class Container extends React.Component<Props, State> {
           <KeyboardAwareScrollView style={{ backgroundColor: '#F6F6F6' }}>
             <View style={styles.container}>
               <View>
-                <Text>
+                <Text style={styles.helperText}>
                   {t(
                     'enter-your-email-below-to-send-instructions-to-reset-your-password',
                   )}
@@ -101,6 +101,9 @@ const styles = StyleSheet.create({
     height: height * 0.8,
     justifyContent: 'center',
     paddingHorizontal: 20,
+  },
+  helperText: {
+    fontSize: 20,
   },
   inputContainer: {
     paddingVertical: 20,

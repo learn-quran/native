@@ -3,9 +3,11 @@ package com.shbool.learnquran;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.zmxv.RNSound.RNSoundPackage;
+import com.airbnb.android.react.lottie.LottiePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.avishayil.rnrestart.ReactNativeRestartPackage;
 import com.reactcommunity.rnlocalize.RNLocalizePackage;
-import com.airbnb.android.react.lottie.LottiePackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -16,6 +18,7 @@ import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage; 
 import io.invertase.firebase.database.RNFirebaseDatabasePackage;
+import io.invertase.firebase.storage.RNFirebaseStoragePackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,14 +35,17 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new ReactNativeRestartPackage(),
-            new RNLocalizePackage(),
-            new LottiePackage(),
+          new VectorIconsPackage(),
+          new RNSoundPackage(),
+          new LottiePackage(),
+          new ReactNativeRestartPackage(),
+          new RNLocalizePackage(),
+          new RNGestureHandlerPackage(),
           // Firebase
           new RNFirebasePackage(),
           new RNFirebaseAuthPackage(),
           new RNFirebaseDatabasePackage(),
-          new RNGestureHandlerPackage()
+          new RNFirebaseStoragePackage()
       );
     }
 

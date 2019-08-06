@@ -4,16 +4,21 @@
   "private": true,
   "scripts": {
     "run:ios": "react-native run-ios",
-    "run:android": "react-native run-android",
-    "run:ios6": "react-native run-ios --simulator=\"iPhone 6s\""
+    "run:android": "npx jetify && react-native run-android",
+    "run:ios6": "react-native run-ios --simulator=\"iPhone 6s\"",
+    "clean": "cd android && ./gradlew clean",
+    "build": "yarn clean && npx jetify && cd android && ./gradlew assembleRelease"
   },
   "dependencies": {
     "formik": "^1.5.7",
     "i18next": "^17.0.4",
-    "lottie-react-native": "^2.6.1",
+    "jetifier": "^1.6.3",
+    "lottie-ios": "^3.0.3",
+    "lottie-react-native": "^3.1.0",
     "react": "16.8.3",
     "react-i18next": "^10.11.2",
     "react-native": "0.59.9",
+    "react-native-app-intro-slider": "^3.0.0",
     "react-native-dropdownalert": "^4.1.0",
     "react-native-firebase": "~5.5.3",
     "react-native-gesture-handler": "^1.3.0",
@@ -21,7 +26,10 @@
     "react-native-localize": "^1.1.3",
     "react-native-paper": "^2.16.0",
     "react-native-restart": "^0.0.10",
+    "react-native-sound": "^0.11.0",
+    "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^3.11.0",
+    "react-navigation-material-bottom-tabs": "^1.0.0",
     "react-redux": "^7.1.0",
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
@@ -41,5 +49,10 @@
     "metro-react-native-babel-preset": "^0.54.1",
     "prettier": "^1.17.1",
     "react-test-renderer": "16.8.3"
+  },
+  "rnpm": {
+    "assets": [
+      "./Fonts/"
+    ]
   }
 }

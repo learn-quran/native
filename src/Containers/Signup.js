@@ -149,7 +149,8 @@ class Signup extends React.Component<Props, State> {
                   mode="contained"
                   style={styles.button}
                   onPress={handleSubmit}
-                  disabled={this.state.isSubmitting}>
+                  disabled={this.state.isSubmitting}
+                  loading={this.state.isSubmitting}>
                   {t('sign-up')}
                 </Button>
                 <Button
