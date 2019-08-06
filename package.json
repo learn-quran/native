@@ -1,7 +1,9 @@
 {
   "name": "learn-quran",
   "version": "0.1.0",
-  "private": true,
+  "author": "Mohammad Shbool <@mohshbool> (https://github.com/mohshbool)",
+  "homepage": "https://github.com/learn-quran/native",
+  "license": "GPL-3.0",
   "scripts": {
     "run:ios": "react-native run-ios",
     "run:android": "npx jetify && react-native run-android",
