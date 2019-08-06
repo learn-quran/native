@@ -84,7 +84,7 @@ class Account extends React.Component<Props, State> {
             this.persistUserInfo();
           });
       }
-    } else DropDown.error('Invalid email');
+    } else DropDown.error(t('invalid-email'));
   };
   onPasswordSubmit = password => {
     const { firebase, t } = this.props;
