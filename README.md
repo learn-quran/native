@@ -12,7 +12,7 @@ This repository contains the native app for Learn Quran, availble both on [iOS](
 
 ## Contributing 🤝
 Contributions, issues and feature requests are welcome! <br>
-Feel free to check the  [issues page](https://github.com/learn-quran/native).
+Feel free to check the  [issues page](https://github.com/learn-quran/native/issues).
 
 ## Show your support 🥰
 Give this project a  ⭐️ if you like it!
