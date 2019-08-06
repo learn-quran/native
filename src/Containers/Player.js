@@ -14,6 +14,7 @@ import { withFirebase } from '../Firebase';
 import { AfterPlay } from '../Components';
 
 type Props = {
+  navigation: Object,
   firebase: Object,
   t: Function,
 };
@@ -34,12 +35,21 @@ class Player extends React.Component<Props, State> {
   }
 
   componentDidMount() {
+    const { navigation } = this.props;
     this.getAsset();
     this.persistUserInfo();
+    navigation.addListener('willFocus', this.play);
+    navigation.addListener('willBlur', this.pause);
   }
   componentWillUnmount() {
+    const { navigation } = this.props;
     this.sound.release();
+    navigation.removeListener('willFocus', this.play);
+    navigation.removeListener('willBlur', this.pause);
   }
+
+  play = () => this.sound && this.sound.play();
+  pause = () => this.sound && this.sound.pause();
 
   getAsset = () => {
     this.props.firebase
@@ -88,13 +98,13 @@ class Player extends React.Component<Props, State> {
           ),
         );
       } else {
-        this.sound.play();
+        this.play();
       }
     });
   };
 
   handleResetClick = () => {
-    this.sound.stop(() => this.sound.play());
+    this.sound.stop(this.play);
   };
   handleAnswerClick = index => {
     const { t, firebase } = this.props;
@@ -102,7 +112,7 @@ class Player extends React.Component<Props, State> {
       this.setState({
         won: true,
       });
-      this.sound.pause();
+      this.pause();
       firebase
         .updateUserPoints(this.points)
         .then(() => {
@@ -125,7 +135,7 @@ class Player extends React.Component<Props, State> {
       this.points -= 1;
       if (this.points === 0) {
         this.setState({ lost: true });
-        this.sound.pause();
+        this.pause();
       } else {
         this.forceUpdate();
       }
@@ -190,7 +200,7 @@ class Player extends React.Component<Props, State> {
   }
 }
 
-const { height, width } = Dimensions.get('screen');
+const { width } = Dimensions.get('screen');
 const styles = {
   container: {
     flex: 1,
