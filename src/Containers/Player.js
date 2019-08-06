@@ -1,6 +1,6 @@
 import React from 'react';
 import Sound from 'react-native-sound';
-import { View, Dimensions } from 'react-native';
+import { AppState, View, Dimensions } from 'react-native';
 import { IconButton, Text, Button } from 'react-native-paper';
 
 import {
@@ -38,19 +38,24 @@ class Player extends React.Component<Props, State> {
     const { navigation } = this.props;
     this.getAsset();
     this.persistUserInfo();
-    navigation.addListener('willFocus', this.play);
-    navigation.addListener('willBlur', this.pause);
+    AppState.addEventListener('change', this.handleAppStateChange);
+    this.onFocus = navigation.addListener('willFocus', this.play);
+    this.onBlur = navigation.addListener('willBlur', this.pause);
   }
   componentWillUnmount() {
-    const { navigation } = this.props;
     this.sound.release();
-    navigation.removeListener('willFocus', this.play);
-    navigation.removeListener('willBlur', this.pause);
+    AppState.removeEventListener('change', this.handleAppStateChange);
+    this.onFocus.remove();
+    this.onBlur.remove();
   }
 
   play = () => this.sound && this.sound.play();
   pause = () => this.sound && this.sound.pause();
 
+  handleAppStateChange = nextAppState => {
+    if (nextAppState.match(/background|inactive/)) this.pause();
+    else this.play();
+  };
   getAsset = () => {
     this.props.firebase
       .getAsset(getRandomAsset(this.datom))
