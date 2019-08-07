@@ -54,7 +54,7 @@ class Player extends React.Component<Props, State> {
 
   handleAppStateChange = nextAppState => {
     if (nextAppState.match(/background|inactive/)) this.pause();
-    else this.play();
+    else if (this.props.navigation.isFocused()) this.play();
   };
   getAsset = () => {
     this.props.firebase
@@ -95,6 +95,7 @@ class Player extends React.Component<Props, State> {
     }
   };
   loadAndPlay = (url: string) => {
+    this.sound && this.sound.release();
     this.sound = new Sound(url, '', error => {
       if (error) {
         DropDown.error(
