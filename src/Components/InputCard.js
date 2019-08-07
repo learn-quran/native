@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import { TextInput, Button } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
+import { TextInput, Button, Text } from 'react-native-paper';
 
 type Props = {
   inheritedValue: string,
@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   helperText: {
-    fontSize: 16,
-    fontWeight: '400',
+    fontSize: 18.5,
+    color: 'black',
   },
   input: {
     width: '85%',
