@@ -15,10 +15,21 @@ type Props = {
   configs: Object,
   changeLanguage: typeof changeLanguage,
 };
-class Login extends React.Component<Props> {
+type State = {
+  noConnection: boolean,
+  user: Object | null,
+  loading: boolean,
+};
+class Login extends React.Component<Props, State> {
+  connectedRef: Object;
   constructor(props) {
     super(props);
-    setTimeout(() => this.auth(), 50);
+    this.state = {
+      noConnection: false,
+      user: null,
+      loading: true,
+    };
+    this.connectedRef = props.firebase.database.ref('.info/connected');
   }
 
   auth = () => {
