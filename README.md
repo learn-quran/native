@@ -19,8 +19,7 @@ This repository contains the native app for Learn Quran, availble both on [iOS](
       $ cd ios
       $ pod install
       ```
-5. [Android] Set up keystores so you can build the app by following [Facebook's tutorial](https://facebook.github.io/react-native/docs/signed-apk-android).
-6. [Android] Install `npx` globally so you can use `jetify`. Run `$ npm install -g npx`.
+5. [Android] Install `npx` globally so you can use `jetify`. Run `$ npm install -g npx`.
 6. Run the app on either iOS or Android using `$ npm run run:<os>` or `$ yarn run:<os>`.
 
 ## Contributing 🤝
