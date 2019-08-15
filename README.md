@@ -14,12 +14,14 @@ This repository contains the native app for Learn Quran, availble both on [iOS](
 1. Follow [the tutorial](https://rnfirebase.io/docs/v5.x.x/installation/initial-setup) provided by [React Native Firebase](https://rnfirebase.io).
 2. Change bundle/package names to comply with the ones you created your Firebase project with.
 3. Download all the dependencies using by running either `$ npm install` or `$ yarn`.
-4. Download iOS pods using CocoaPods, follow the instructions [here](https://firebase.google.com/docs/ios/setup#add_the_sdk) if you don't have it installed already from the first step.
-  ```sh
-  $ cd ios
-  $ pod install
-  ```
-5. Run the app on either iOS or Android using `$ npm run run:<os>` or `$ yarn run:<os>`.
+4. [iOS] Download pods using CocoaPods, follow the instructions [here](https://firebase.google.com/docs/ios/setup#add_the_sdk) if you don't have it installed already from the first step.
+    - ```sh
+      $ cd ios
+      $ pod install
+      ```
+5. [Android] Set up keystores so you can build the app by following [Facebook's tutorial](https://facebook.github.io/react-native/docs/signed-apk-android).
+6. [Android] Install `npx` globally so you can use `jetify`. Run `$ npm install -g npx`.
+6. Run the app on either iOS or Android using `$ npm run run:<os>` or `$ yarn run:<os>`.
 
 ## Contributing 🤝
 Contributions, issues and feature requests are welcome! <br>
