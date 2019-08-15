@@ -1,15 +1,15 @@
-import loader from './loader.json';
 import onWin from './on-win.json';
 import onLose from './on-lose.json';
 import howToPlay from './how-to-play.gif';
 import inspiration from './inspiration.gif';
+import connecting from './connecting.json';
 
-export { loader, onWin, onLose, howToPlay, inspiration };
+export { onWin, onLose, howToPlay, inspiration, connecting };
 
 module.exports = {
-  loader,
   onWin,
   onLose,
   howToPlay,
   inspiration,
+  connecting,
 };

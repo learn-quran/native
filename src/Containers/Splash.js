@@ -4,9 +4,10 @@ import LottieView from 'lottie-react-native';
 import RNRestart from 'react-native-restart';
 import { I18nManager } from 'react-native';
 import { connect } from 'react-redux';
+import { withTranslation } from 'react-i18next';
+
 import { changeLanguage } from '../Actions';
 import { withFirebase } from '../Firebase';
-import { withTranslation } from 'react-i18next';
 
 type Props = {
   navigation: Object,
@@ -21,7 +22,6 @@ type State = {
   loading: boolean,
 };
 class Login extends React.Component<Props, State> {
-  connectedRef: Object;
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +29,7 @@ class Login extends React.Component<Props, State> {
       user: null,
       loading: true,
     };
-    this.connectedRef = props.firebase.database.ref('.info/connected');
+    this.auth();
   }
 
   auth = () => {
@@ -74,7 +74,14 @@ class Login extends React.Component<Props, State> {
 
   render() {
     return (
-      <LottieView source={require('../Animations').loader} autoPlay loop />
+      <LottieView
+        source={require('../Animations').connecting}
+        autoPlay
+        loop
+        style={{
+          backgroundColor: '#4F4F4F',
+        }}
+      />
     );
   }
 }
