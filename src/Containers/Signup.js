@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import * as Yup from 'yup';
-import { Alert, View, StyleSheet, Dimensions } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import { Formik } from 'formik';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
@@ -69,7 +69,7 @@ class Signup extends React.Component<Props, State> {
             })
             .then(() => {})
             .catch(error => {
-              Alert.alert(t(error));
+              DropDown.error(t(error));
               changeIsSubmitting(false);
             });
         })

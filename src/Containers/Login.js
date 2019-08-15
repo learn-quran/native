@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Alert, View, StyleSheet, Dimensions } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { TextInput, Button } from 'react-native-paper';
@@ -47,7 +47,7 @@ class Login extends React.Component<Props, State> {
           .signIn(values)
           .then(() => {})
           .catch(error => {
-            Alert.alert(t(error));
+            DropDown.error(t(error));
             changeIsSubmitting(false);
           });
       })
