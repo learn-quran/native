@@ -45,26 +45,28 @@ class Account extends React.Component<Props, State> {
   onUsernameSubmit = username => {
     const { firebase, t } = this.props;
     if (username.length >= 3) {
-      if (username !== this.state.user.username) {
-        if (/^(?:[\u0600-\u065f]+|[a-z]+)$/i.test(username)) {
-          firebase
-            .isUsernameDuplicated(username)
-            .then(() => {
-              this.setState({ isSubmitting: true });
-              firebase
-                .updateUserOnDB({ username }, true)
-                .then(() =>
-                  DropDown.success(t('your-username-has-been-updated')),
-                )
-                .catch(err => DropDown.error(t(err)))
-                .finally(() => {
-                  this.setState({ isSubmitting: false });
-                  this.persistUserInfo();
-                });
-            })
-            .catch(err => DropDown.error(t(err)));
-        } else DropDown.error(t('username-can-only-contain-letters'));
-      }
+      if (username.length <= 20) {
+        if (username !== this.state.user.username) {
+          if (/^(?:[\u0600-\u065f]+|[a-z]+)$/i.test(username)) {
+            firebase
+              .isUsernameDuplicated(username)
+              .then(() => {
+                this.setState({ isSubmitting: true });
+                firebase
+                  .updateUserOnDB({ username }, true)
+                  .then(() =>
+                    DropDown.success(t('your-username-has-been-updated')),
+                  )
+                  .catch(err => DropDown.error(t(err)))
+                  .finally(() => {
+                    this.setState({ isSubmitting: false });
+                    this.persistUserInfo();
+                  });
+              })
+              .catch(err => DropDown.error(t(err)));
+          } else DropDown.error(t('username-can-only-contain-letters'));
+        }
+      } else DropDown.error(t('username-too-long'));
     } else DropDown.error(t('username-too-short'));
   };
   onEmailSubmit = email => {
