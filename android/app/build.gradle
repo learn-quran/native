@@ -110,11 +110,19 @@ android {
     }
     signingConfigs {
         staging {
-            if (project.hasProperty('MYAPP_STAGING_STORE_FILE')) {
-                storeFile file(MYAPP_STAGING_STORE_FILE)
-                storePassword MYAPP_STAGING_STORE_PASSWORD
-                keyAlias MYAPP_STAGING_KEY_ALIAS
-                keyPassword MYAPP_STAGING_KEY_PASSWORD
+            if (project.hasProperty('LEARN_QURAN_STAGING_STORE_FILE')) {
+                storeFile file(LEARN_QURAN_STAGING_STORE_FILE)
+                storePassword LEARN_QURAN_STAGING_STORE_PASSWORD
+                keyAlias LEARN_QURAN_STAGING_KEY_ALIAS
+                keyPassword LEARN_QURAN_STAGING_KEY_PASSWORD
+            }
+        }
+        release {
+            if (project.hasProperty('LEARN_QURAN_STAGING_STORE_FILE')) {
+                storeFile file(LEARN_QURAN_STAGING_STORE_FILE)
+                storePassword LEARN_QURAN_STAGING_STORE_PASSWORD
+                keyAlias LEARN_QURAN_STAGING_KEY_ALIAS
+                keyPassword LEARN_QURAN_STAGING_KEY_PASSWORD
             }
         }
     }
@@ -130,7 +138,8 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.staging
+            // Change this to which ever release you'd like to assemble for. Options: "signingConfigs.staging" or "signingConfigs.release" 
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
