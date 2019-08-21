@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   I18nManager,
   Linking,
+  Dimensions,
 } from 'react-native';
 import { Button, Portal, Dialog, Text } from 'react-native-paper';
 import { connect } from 'react-redux';
@@ -135,6 +136,9 @@ class Settings extends React.Component<Props, State> {
   }
 }
 
+const { height, width } = Dimensions.get('screen');
+const ratio = height / width + 0.15;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -148,7 +152,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#f9f7ec',
-    fontSize: 20,
+    fontSize: Math.round(8.5 * ratio),
   },
   author: {
     alignItems: 'center',
