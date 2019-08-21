@@ -22,7 +22,7 @@ const navigator = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'Walkthrough',
+    initialRouteName: 'Signup',
     defaultNavigationOptions: {
       header: null,
     },

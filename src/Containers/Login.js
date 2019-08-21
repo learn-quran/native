@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View, StyleSheet, Dimensions, Platform } from 'react-native';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { TextInput, Button } from 'react-native-paper';
@@ -61,6 +61,7 @@ class Login extends React.Component<Props, State> {
 
   render() {
     const { navigation, t } = this.props;
+    const isLabel = Platform.OS === 'android' && t('lang-code') === 'en';
     return (
       <Formik
         initialValues={{
@@ -74,7 +75,8 @@ class Login extends React.Component<Props, State> {
               <View style={styles.inputsContainer}>
                 <TextInput
                   autoFocus
-                  label={t('email')}
+                  label={isLabel ? t('email') : ''}
+                  placeholder={!isLabel ? t('email') : ''}
                   style={styles.input}
                   value={values.email}
                   onChangeText={handleChange('email')}
@@ -87,7 +89,8 @@ class Login extends React.Component<Props, State> {
                 />
                 <TextInput
                   secureTextEntry
-                  label={t('password')}
+                  label={isLabel ? t('password') : ''}
+                  placeholder={!isLabel ? t('password') : ''}
                   style={styles.input}
                   value={values.password}
                   onChangeText={handleChange('password')}

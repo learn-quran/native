@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 import { TextInput, Button, Text } from 'react-native-paper';
 
 type Props = {
@@ -10,6 +10,7 @@ type Props = {
   buttonText: string,
   isSubmitting: boolean,
   inputProps: Object,
+  lang: 'en' | 'ar',
 };
 const InputCard = ({
   inheritedValue,
@@ -18,11 +19,13 @@ const InputCard = ({
   onSubmit,
   buttonText,
   isSubmitting,
+  lang,
   ...rest
 }: Props) => {
   const [value, setValue] = useState(inheritedValue || '');
   const handleChange = val => setValue(val);
   const handleSubmit = () => onSubmit(value);
+  const isLabel = Platform.OS === 'android' && lang === 'en';
   return (
     <View style={styles.container}>
       {!!helperText && (
@@ -31,7 +34,8 @@ const InputCard = ({
         </View>
       )}
       <TextInput
-        label={label}
+        label={isLabel ? label : ''}
+        placeholder={!isLabel ? label : ''}
         style={styles.input}
         value={value}
         onChangeText={handleChange}

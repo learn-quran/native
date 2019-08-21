@@ -134,6 +134,7 @@ class Account extends React.Component<Props, State> {
               onSubmit={this.onUsernameSubmit}
               buttonText={t('change-username')}
               isSubmitting={state.isSubmitting}
+              lang={t('lang-code')}
             />
             <InputCard
               label={t('email')}
@@ -142,6 +143,7 @@ class Account extends React.Component<Props, State> {
               buttonText={t('change-email')}
               isSubmitting={state.isSubmitting}
               keyboardType="email-address"
+              lang={t('lang-code')}
             />
             <InputCard
               secureTextEntry
@@ -152,6 +154,7 @@ class Account extends React.Component<Props, State> {
               onSubmit={this.onPasswordSubmit}
               buttonText={t('change-password')}
               isSubmitting={state.isSubmitting}
+              lang={t('lang-code')}
             />
             <InputCard
               secureTextEntry
@@ -162,6 +165,7 @@ class Account extends React.Component<Props, State> {
               onSubmit={this.onReauthSubmit}
               buttonText={t('re-authenticate')}
               isSubmitting={state.isSubmitting}
+              lang={t('lang-code')}
             />
           </View>
         )}

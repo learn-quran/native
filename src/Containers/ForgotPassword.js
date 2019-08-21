@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Alert, View, StyleSheet, Dimensions } from 'react-native';
+import { Alert, View, StyleSheet, Dimensions, Platform } from 'react-native';
 import { Formik } from 'formik';
 import { TextInput, Button, Text } from 'react-native-paper';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -45,6 +45,7 @@ class Container extends React.Component<Props, State> {
 
   render() {
     const { navigation, t } = this.props;
+    const isLabel = Platform.OS === 'android' && t('lang-code') === 'en';
     return (
       <Formik
         initialValues={{
@@ -64,7 +65,8 @@ class Container extends React.Component<Props, State> {
               <View style={styles.inputContainer}>
                 <TextInput
                   autoFocus
-                  label={t('email')}
+                  label={isLabel ? t('email') : ''}
+                  placeholder={!isLabel ? t('email') : ''}
                   style={styles.input}
                   value={values.email}
                   onChangeText={handleChange('email')}

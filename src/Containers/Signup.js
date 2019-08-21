@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import * as Yup from 'yup';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View, StyleSheet, Dimensions, Platform } from 'react-native';
 import { Formik } from 'formik';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
@@ -84,6 +84,7 @@ class Signup extends React.Component<Props, State> {
 
   render() {
     const { t, navigation } = this.props;
+    const isLabel = Platform.OS === 'android' && t('lang-code') === 'en';
     return (
       <Formik
         initialValues={{
@@ -99,7 +100,8 @@ class Signup extends React.Component<Props, State> {
               <View style={styles.inputsContainer}>
                 <TextInput
                   autoFocus
-                  label={t('email')}
+                  label={isLabel ? t('email') : ''}
+                  placeholder={!isLabel ? t('email') : ''}
                   value={values.email}
                   onChangeText={handleChange('email')}
                   onBlur={handleBlur('email')}
@@ -110,7 +112,8 @@ class Signup extends React.Component<Props, State> {
                   onSubmitEditing={() => this.username.focus()}
                 />
                 <TextInput
-                  label={t('username')}
+                  label={isLabel ? t('username') : ''}
+                  placeholder={!isLabel ? t('username') : ''}
                   value={values.username}
                   //helperText={t('this-will-be-used-on-the-leaderboard')}
                   onChangeText={handleChange('username')}
@@ -124,7 +127,8 @@ class Signup extends React.Component<Props, State> {
                 <TextInput
                   secureTextEntry
                   mode="outlined"
-                  label={t('password')}
+                  label={isLabel ? t('password') : ''}
+                  placeholder={!isLabel ? t('password') : ''}
                   value={values.password}
                   onChangeText={handleChange('password')}
                   onBlur={handleBlur('password')}
@@ -135,7 +139,8 @@ class Signup extends React.Component<Props, State> {
                 <TextInput
                   secureTextEntry
                   mode="outlined"
-                  label={t('password-confirmation')}
+                  label={isLabel ? t('password-confirmation') : ''}
+                  placeholder={!isLabel ? t('password-confirmation') : ''}
                   value={values.passwordConfirmation}
                   onChangeText={handleChange('passwordConfirmation')}
                   onBlur={handleBlur('passwordConfirmation')}
