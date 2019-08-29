@@ -1,5 +1,5 @@
 # Learn Quran Native
-This repository contains the native app for Learn Quran, availble both only on [Android](https://play.google.com/store/apps/details?id=com.shbool.learnquran) only, because I can't afford to pay for Apple's Developer Program 😕. If you're on the PC, please refer to [the website](https://learn-quran-remastered.firebaseapp.com). 
+This repository contains the native app for Learn Quran, availble both only on [Android](https://play.google.com/store/apps/details?id=com.shbool.learnquran) only, because I can't afford to pay for Apple's Developer Program 😕. If you're on the PC, please refer to [the website](https://learn-quran.now.sh). 
 
 *[To know more about the platform itself](https://github.com/learn-quran/learn-quran).*
 
